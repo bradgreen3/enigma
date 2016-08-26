@@ -1,0 +1,109 @@
+Guiding Questions to Define The Relationship:
+
+* What are your learning goals for this project?
+Brad: I’d like to develop an organized plan for completing this project (e.g. some sort of outline). I want to take the outline, develop tests for each step, then complete the project. 
+Lee: I’d like to complete more of this project than my last while exploring the dynamics of pairing. I would also like to think more deeply about testing and object oriented design principles.
+
+* What is your collaboration style? How do you feel about pair programming vs. divide-and-conquer approaches?
+Brad: I think a healthy balance of pair & divide and conquer is ideal. Conceptually, we should pair. Also, when creating an outline, we should probably pair. Once it’s clear what needs to be done and we’re sure that we are both on the same page, then we can more easily transition into divide & conquer. 
+Lee: As Allison likes to say, communication is paramount. I think ideally at our current skill level things should bias towards pairing a higher percentage of the time as opposed to highly independent divide and conquer, if only to experience the process more thoroughly. Planning is a great way to start and flexibility as the project/pairing situation evolves over time.
+
+* How do you communicate best? How do you appreciate receiving communication from others?
+Brad: I am comfortable communicating over Slack, but I feel like it’s more efficient to meet in person as much as possible. Over the weekend, Slack may be preferred, but I often stay after class which I prefer to arriving before class begins in the morning. 
+Lee: I too prefer face to face, everything goes faster that way. I can meet basically anytime over the weekend or weekday evenings. I’m open to meeting to split travel distance. 
+
+* How would you describe your work style?
+Brad: Methodical. If there are too many steps that aren’t written out, I get lost. I can’t conceptualize multiple steps in my head, I have to have lots of structure. 
+Lee: I maybe run around a bit trying to grab low hanging fruit. At some point(when?) those low hanging fruits help to outline the entire problem. I often leave the hardest bits for last. I feel like I can be flexible also.
+
+* What’s gone well or poorly in your previous projects?
+Brad: Too much divide and conquer. Especially if I’m not tackling the early stages of a project, I get confused as to how my part fits into the greater whole. 
+Lee: As in the last project it seemed just way too out of reach conceptually so sometimes it was hard to plan or attack it methodically. I maybe lost a lot of valuable time that way. 
+
+* What do you need (resources, environment, communication) to do your best work?
+Brad: Patience if I ask stupid questions because I get lost easily. There might be many times when I say, “can we start back at the beginning and trace the functionality of the program?”
+Lee: I’m flexible here but super loud places don’t put me in the best thinking state. Slack is always there and I’m always checking it.
+
+* What scheduling restraints do you have? What are your scheduling preferences?
+Brad: Prefer not to meet on weekends, but don’t mind doing it if nothing else works. I prefer staying after class to meeting before class.
+Lee: Apart from Friday nights I’m open to meeting anytime. 
+
+
+* What is your style for giving feedback? Does anything ever hold you back from giving feedback?
+Brad: I try to give constructive criticism. My background is in teaching, so I always strive for clarity.
+Lee: Directly but not unkindly. Even softening the edges with a joke. 
+
+
+* What do you identify as being your biggest strength(s) technically, as they relate to this project? Where do you feel you could use improvement in your technical skills, as they relate to this project? How can our team help support you in improving these skills?
+
+Brad: Organization & clarity are probably some strengths that can help the project. I might lack in large-scale conceptualization and multiple files and classes unreasonably confuse me. I’m not sure how the team can help me with this. I liked the road show where I could see how an instructor would conceptualize a project.
+
+Lee: I think I have some tech skills that could contribute, but that I would like to improve on ruby conventions and style. It will be good to bounce ideas off of each other to come up with a better case solution than might be achieved independently.
+
+* What tools do you want to use to manage the project?
+Brad: Whiteboard, Google doc?, Github
+Lee: Whiteboard, shared online document(whatever form), intro to github in pairs.
+
+* How do you want the group to solve problems when members run into issues with features of the project?
+Brad: Follow Allison’s steps to remediate issues. 
+Lee: We should try and solve them as objectively as possible. To do this we need to give each other the space in which to divulge viewpoints/pros/cons of the point of contention. We should always be willing to communicate.
+
+
+* How do you know if a project is successful? How can we achieve that as a group?
+Brad: It’s successful if we both feel like we established a good system to work together to solve as many of the project specs as possible. Establishing good working habits trumps a perfect project. 
+
+Lee: Functionality would be ideal but I agree that establishing familiarity with the pairing paradigm is the biggest point of this particular project. 
+
+
+Any additional questions that you would like to add:
+Brad: Nope
+Lee: Nah
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Template for DTR Memo:
+DTR Memo
+Project: ___________________________________________________________________
+Group Member Names: ______________________________________________________
+Project Expectations: What does each group member hope to get out of this project? Goals and expectations:
+*         
+Schedule Expectations: When are we available to work together and individually?
+* Communication Expectations: How and often will we communicate? How do we keep lines of communication open?
+* Abilities Expectations: Technical strengths and areas for desired improvement:
+* Workload Expectations: What features do we each want to work on?
+* Workflow Expectations: Git workflow/Tools/Code Review/Reviewing Pull Requests: 
+* Expectations for giving and receiving feedback:
+* Agenda to discuss project launch:
+* Ideas:
+*  
+Tools: 
+* Additional Notes:
+*
