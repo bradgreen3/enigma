@@ -1,4 +1,4 @@
-require_relativee 'test_helper.rb'
+require_relative 'test_helper.rb'
 require './lib/key_generator.rb'
 
 class KeyGeneratorTest < Minitest::Test
@@ -22,7 +22,6 @@ class KeyGeneratorTest < Minitest::Test
   end
 
   def test_numbers_plucked_from_array
-skip
     key_gen = KeyGenerator.new
     key_gen_shuffled = key_gen.shuffle
   require "pry"; binding.pry
