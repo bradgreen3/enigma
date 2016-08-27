@@ -1,0 +1,42 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/leesaville/turing/1608/1module/enigma/lib/key_generator.rb": [
+        1,
+        1,
+        1,
+        4,
+        4,
+        null,
+        null,
+        1,
+        12,
+        null,
+        null,
+        1,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1472337365
+  }
+}
