@@ -1,8 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relativee 'test_helper.rb'
 require './lib/key_generator.rb'
 
 class KeyGeneratorTest < Minitest::Test
@@ -23,6 +19,16 @@ class KeyGeneratorTest < Minitest::Test
 
     assert key_gen.shuffle.length == key_gen.numbers.length
     refute key_gen.shuffle == key_gen.numbers
+  end
+
+  def test_numbers_plucked_from_array
+skip
+    key_gen = KeyGenerator.new
+    key_gen_shuffled = key_gen.shuffle
+  require "pry"; binding.pry
+#I want this test to demand the existence of a five member array
+#that has been plucked every-other from the shuffled array
+    assert_equal 5, key_gen.key_array.key.length
   end
 
 end
