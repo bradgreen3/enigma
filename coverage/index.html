@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-08-27T15:10:11-06:00">2016-08-27T15:10:11-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-08-27T16:36:05-06:00">2016-08-27T16:36:05-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.9
+         2.6
        </span>
     </span> hits/line)
   </h2>
@@ -53,11 +53,11 @@
       <tr>
         <td class="strong"><a href="#3920ed67a582423fd71d57169f4fec690cb12938" class="src_link" title="lib/key_generator.rb">lib/key_generator.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>20</td>
+        <td>33</td>
         <td>11</td>
         <td>11</td>
         <td>0</td>
-        <td>2.9</td>
+        <td>2.6</td>
       </tr>
       
     </tbody>
@@ -99,7 +99,7 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  attr_reader :numbers, :key, :shuffled</code>
+          <code class="ruby">  attr_reader :numbers, :key</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
@@ -135,13 +135,13 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  def shuffle</code>
+          <code class="ruby">  def get_key</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="9">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="12" data-linenumber="9">
+          <span class="hits">12</span>
           
-          <code class="ruby">    @shuffled = @numbers.shuffle</code>
+          <code class="ruby">    5.times { @key &lt;&lt; @numbers.sample }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -159,31 +159,31 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  def key_array</code>
+          <code class="ruby">  def give_key</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="2" data-linenumber="13">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    if @key.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">    self.shuffled.each_with_index do |num, index|</code>
+          <code class="ruby">      self.get_key</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="14">
-          <span class="hits">10</span>
+        <li class="never" data-hits="" data-linenumber="15">
           
-          <code class="ruby">      if index % 2 != 0</code>
+          
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="15">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
           
-          <code class="ruby">        self.key &lt;&lt; num</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">      @key.join</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
@@ -208,6 +208,84 @@
           
           
           <code class="ruby">end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">  # def shuffle</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  #   @shuffled = @numbers.shuffle</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">  #</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  # def key_array</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">  #   self.shuffled.each_with_index do |num, index|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">  #     if index % 2 != 0</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  #       self.key &lt;&lt; num</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">  #     end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  #   end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">  # end</code>
         </li>
       
     </ol>
