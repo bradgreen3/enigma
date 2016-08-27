@@ -17,30 +17,14 @@ class KeyGeneratorTest < Minitest::Test
   def test_sample_to_key_array
     key_gen = KeyGenerator.new
     key_gen.get_key
-# require "pry"; binding.pry
+
     assert_equal 5, key_gen.key.length
   end
 
   def test_that_it_returns_key
     key_gen = KeyGenerator.new
     key_gen.give_key
-# require "pry"; binding.pry
+
     assert_equal 5, key_gen.give_key.length
   end
 end
-#
-# def test_numbers_shuffle
-#   key_gen = KeyGenerator.new
-#
-#   assert key_gen.shuffle.length == key_gen.numbers.length
-#   refute key_gen.shuffle == key_gen.numbers
-# end
-#
-# def test_numbers_plucked_from_array
-#   key_gen = KeyGenerator.new
-#   key_gen_shuffled = key_gen.shuffle
-# require "pry"; binding.pry
-# #I want this test to demand the existence of a five member array
-# #that has been plucked every-other from the shuffled array
-#   assert_equal 5, key_gen.key_array.key.length
-# end
