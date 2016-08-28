@@ -1,5 +1,4 @@
 require 'Date'
-require 'pry'
 
 class Offsets
   attr_reader :key, :date
@@ -16,23 +15,39 @@ class Offsets
     @date = @date[-4..-1]
   end
 
-  def key_to_base_offset(key) #must be string
-    skip
-    a = (key[0] + key[1]).to_i
-    b = (key[1] + key[2]).to_i
-    c = (key[2] + key[3]).to_i
-    d = (key[2] + key[4]).to_i
+  def base(key)
+    bases = [] #must be string
+    bases << (key[0] + key[1]).to_i
+    bases << (key[1] + key[2]).to_i
+    bases << (key[2] + key[3]).to_i
+    bases << (key[3] + key[4]).to_i
+    bases
   end
 
+  def offset(date)
+    offsets = []
+    offsets << date[0].to_i
+    offsets << date[1].to_i
+    offsets << date[2].to_i
+    offsets << date[3].to_i
+    offsets
+  end
+
+  def make_rotation_hash(a,b,c,d)
+    rotation_keys = ['a','b','c','d']
+    rotation_vals = [a,b,c,d]
+    zipped = rotation_keys.zip(rotation_vals)
+    rotations = Hash[zipped]
+  end
+
+  def rotations(key, date)
+    bases = base(key)
+    offsets = offset(date)
+    summed = []
+    bases.each_with_index do |number, index|
+      summed << (number + offsets[index]) % 26
+    end
+    summed
+  end
 
 end
-
-test = Offsets.new
-puts test.offset_generator('01201990')
-
-  # offset_calculator
-  #   generates A B C D rotations
-  #   A = first & second of key + fist of offset
-  #   B = second & third of key + second of offset
-  #   C = third & fourth of key + third of offset
-  #   D = fourth & fifth of key + fourth of offset

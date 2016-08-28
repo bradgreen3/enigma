@@ -1,6 +1,6 @@
 require 'Date'
-class Offset
-  attr_reader :make_rotation_hashpri
+class Offsets
+  attr_reader :make_rotation_hash, :offset_generator
   def offset_generator(date)
     @date = date.to_s
     @date = @date.split("-")
