@@ -18,16 +18,3 @@ class KeyGenerator
   end
 
 end
-
-
-  # def shuffle
-  #   @shuffled = @numbers.shuffle
-  # end
-  #
-  # def key_array
-  #   self.shuffled.each_with_index do |num, index|
-  #     if index % 2 != 0
-  #       self.key << num
-  #     end
-  #   end
-  # end
