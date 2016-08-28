@@ -1,33 +1,38 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/leesaville/turing/1608/1module/enigma/lib/key_generator.rb": [
+      "/Users/leesaville/turing/1608/1module/enigma/lib/temp_offset.rb": [
         1,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
         1,
         4,
         4,
+        4,
+        4,
+        null,
+        4,
+        4,
+        4,
         null,
         null,
         1,
-        12,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
         null,
         null,
         1,
-        2,
         1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
@@ -37,6 +42,6 @@
         null
       ]
     },
-    "timestamp": 1472337365
+    "timestamp": 1472409848
   }
 }
