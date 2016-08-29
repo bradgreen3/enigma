@@ -1,6 +1,5 @@
 require_relative 'test_helper'
-
-require './lib/temp_offset.rb'
+require './lib/offset.rb'
 
 class OffsetsTest < Minitest::Test
   def test_offset_generator_converts_date_to_string
@@ -40,24 +39,31 @@ class OffsetsTest < Minitest::Test
   end
 
   def test_offset_rotations
-  offset = Offsets.new
-  date = offset.offset_generator(Date.today)
+    offset = Offsets.new
+    date = offset.offset_generator(Date.today)
 
-  assert_equal Array, offset.offset(date).class
-  assert_equal 4, offset.offset(date)[0]
-  assert_equal 2, offset.offset(date)[1]
-  assert_equal 5, offset.offset(date)[2]
-  assert_equal 6, offset.offset(date)[3]
+    assert_equal Array, offset.offset(date).class
+    assert_equal 4, offset.offset(date)[0]
+    assert_equal 2, offset.offset(date)[1]
+    assert_equal 5, offset.offset(date)[2]
+    assert_equal 6, offset.offset(date)[3]
   end
 
   def test_rotations_summed
     offset = Offsets.new
     date = offset.offset_generator(Date.today)
-require "pry"; binding.pry
+
     assert_equal Array, offset.rotations('12345', date).class
     assert_equal 12 + 4, offset.rotations('12345', date)[0]
     assert_equal 23 + 2, offset.rotations('12345', date)[1]
     assert_equal (34 + 5) % 26, offset.rotations('12345', date)[2]
     assert_equal (45 + 6) % 26, offset.rotations('12345', date)[3]
+  end
+
+  def test_final_hashes
+    offset = Offsets.new
+    date = offset.offset_generator(Date.today)
+
+    assert_equal Hash, offset.final_hashes('12345', date).class
   end
 end

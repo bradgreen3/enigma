@@ -1,7 +1,11 @@
 require 'Date'
 
 class Offsets
-  attr_reader :key, :date
+  attr_reader :key, :date, :alpha_library
+
+  def initialize
+    @alpha_library = ('a'..'z').to_a
+  end
 
 
   def offset_generator(input_date)
@@ -34,7 +38,7 @@ class Offsets
   end
 
   def make_rotation_hash(array)
-    rotation_keys = ['a','b','c','d']
+    rotation_keys = ['A','B','C','D']
     # rotation_vals = [a,b,c,d]
     zipped = rotation_keys.zip(array)
     rotations = Hash[zipped]
@@ -50,6 +54,16 @@ class Offsets
     end
 
     summed
+  end
+
+  def final_hashes(key, date)
+    rotation_values = rotations(key, date)
+    rotations_hash = make_rotation_hash(rotation_values)
+    rotations_hash['A'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['A']))]
+    rotations_hash['B'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['B']))]
+    rotations_hash['C'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['C']))]
+    rotations_hash['D'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['D']))]
+    rotations_hash
   end
 
 end
