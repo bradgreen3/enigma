@@ -1,18 +1,52 @@
 require 'Date'
-class Offsets
-  attr_reader :make_rotation_hash, :offset_generator
-  def offset_generator(date)
-    @date = date.to_s
-    @date = @date.split("-")
-    @date.rotate!(1)
-    # require "pry"; binding.pry
-    @date[2].slice!(0,2)
-    @date = @date.join("")
-    @date = (@date.to_i * @date.to_i).to_s
-    @date = @date[-4..-1]
-  end
 
-  puts offset_generator(Date.today).inspect
+def make_rotation_hash(array)
+  rotation_keys = ['A','B','C','D']
+  # rotation_vals = [a,b,c,d]
+  zipped = rotation_keys.zip(array)
+  rotations = Hash[zipped]
+end
+
+
+rotation_keys = ['A', 'B', 'C', 'D']
+rotations_hash = rotation_keys.zip()
+rotations_hash['A'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['A']))]
+rotations_hash['B'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['B']))]
+rotations_hash['C'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['C']))]
+rotations_hash['D'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['D']))]
+rotations_hash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# class Offsets
+#   attr_reader :make_rotation_hash, :offset_generator
+#   def offset_generator(date)
+#     @date = date.to_s
+#     @date = @date.split("-")
+#     @date.rotate!(1)
+#     # require "pry"; binding.pry
+#     @date[2].slice!(0,2)
+#     @date = @date.join("")
+#     @date = (@date.to_i * @date.to_i).to_s
+#     @date = @date[-4..-1]
+#   end
+#
+#   puts offset_generator(Date.today).inspect
 
 
   # # base rotations
