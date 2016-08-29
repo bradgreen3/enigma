@@ -8,19 +8,30 @@ class Offsets
   end
 
 
-  def offset_generator(input_date)
-    @date = input_date
-    @date = date.to_s
-    @date = @date.split("-")
-    @date.rotate!(1)
-    # @date[2].slice!(0,2)
-    @date = @date.join("")
-    @date = (@date.to_i * @date.to_i).to_s
-    @date = @date[-4..-1]
+  def offset_generator(date)
+    if date == Date.today
+      @date = date.to_s
+      @date = @date.split("-")
+      @date[0] = @date[0].slice(2..3)
+      @date.rotate!(1)
+      @date = @date.join("")
+      @date = (@date.to_i * @date.to_i).to_s
+      @date = @date[-4..-1]
+      return @date
+    elsif date.class != String
+      return "Date must be a string"
+    elsif date.length != 6
+      return "Date must be in MMDDYY format"
+    else
+      @date = date
+      @date = (@date.to_i * @date.to_i).to_s
+      @date = @date[-4..-1]
+      return @date
+    end
   end
 
   def base(key)
-    bases = [] #must be string
+    bases = []
     bases << (key[0] + key[1]).to_i
     bases << (key[1] + key[2]).to_i
     bases << (key[2] + key[3]).to_i
@@ -44,7 +55,7 @@ class Offsets
     rotations = Hash[zipped]
   end
 
-  def rotations(key, date) #with the modulus
+  def rotations(key, date) 
     bases = base(key)
     offsets = offset(date)
     summed = []
