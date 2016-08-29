@@ -33,20 +33,22 @@ class Offsets
     offsets
   end
 
-  def make_rotation_hash(a,b,c,d)
+  def make_rotation_hash(array)
     rotation_keys = ['a','b','c','d']
-    rotation_vals = [a,b,c,d]
-    zipped = rotation_keys.zip(rotation_vals)
+    # rotation_vals = [a,b,c,d]
+    zipped = rotation_keys.zip(array)
     rotations = Hash[zipped]
   end
 
-  def rotations(key, date)
+  def rotations(key, date) #with the modulus
     bases = base(key)
     offsets = offset(date)
     summed = []
+
     bases.each_with_index do |number, index|
       summed << (number + offsets[index]) % 26
     end
+
     summed
   end
 
