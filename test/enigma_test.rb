@@ -56,10 +56,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_crack_exists
-skip
     e = Enigma.new
-    result = e.crack("-|0S-|0S-|0S-|0SCI-ByIU", Date.today)
-
-    assert_equal 'wah wah wah wah ..end..', result
+    input = "hello ..end.."
+    encrypted_message = e.encrypt(input, "12345")
+    assert_equal ["hello ..end..", "12345"], e.crack(encrypted_message, Date.today)
   end
 end
