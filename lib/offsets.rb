@@ -4,7 +4,7 @@ require_relative 'key_generator'
 
 class Offsets
   attr_reader :date , :key , :offset_generator , :offset_calculator ,
-              :offset , :rotations , :rotations_hash
+              :offset , :rotations
 
   def offset_generator(date)
     if date == Date.today

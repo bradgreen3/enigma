@@ -1,7 +1,5 @@
-require '../lib/offsets.rb'
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'Date'
+require_relative 'test_helper'
+require './lib/offsets.rb'
 
 class OffsetsTest < Minitest::Test
   def test_offset_generator_converts_date_class_to_string
@@ -37,20 +35,13 @@ class OffsetsTest < Minitest::Test
 
   def test_offset_calculator_accepts_offset_from_generator
     off_and_key = Offsets.new
-    off_and_key.offset_calculator("082816")
+    off_and_key.offset_calculator("082816", '12345')
     assert_equal "9856" , off_and_key.offset
   end
-  
-  def test_offset_calculator_accepts_key_from_keygen
-     off_and_key = Offsets.new
-     off_and_key.offset_calculator("082816")
-     assert_equal String , off_and_key.key.class
-     assert_equal 5 , off_and_key.key.length
-   end
 
-   def test_offset_calculator_generates_rotation
-     off_and_key = Offsets.new
-     off_and_key.offset_calculator("082816")
-     assert off_and_key.rotation_a
-   end
+  def test_offset_calculator_generates_rotations
+   off_and_key = Offsets.new
+   off_and_key.offset_calculator("082816", '12345')
+   assert off_and_key.rotations
+  end
  end

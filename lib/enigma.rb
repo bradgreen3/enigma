@@ -2,14 +2,14 @@ require_relative 'offsets'
 require_relative 'key_generator'
 
 class Enigma
-  attr_reader :message, :key, :date , :generate_key, :ciphers
+  attr_reader :message, :key, :date , :generate_key, :ciphers, :ciphers_inverse
 
   def encrypt(input_message, input_key=generate_key, input_date=Date.today)
-    @message = input_message
+    message = input_message
     @key = input_key
     @date = input_date
     @ciphers = get_offsets
-    characters = prepare_message
+    characters = prepare_message(message)
     encrypted = []
     characters.each_with_index do |letter, index|
       if (index + 1) % 4 == 1
@@ -23,6 +23,30 @@ class Enigma
       end
     end
     encrypted.join
+  end
+
+  def decrypt(input_message, input_key, input_date=Date.today)
+    encrypted_message = input_message
+    @key = input_key
+    @date = input_date
+    ciphers_inverse = Hash.new
+    ciphers.each do |key, value|
+      ciphers_inverse[key] = value.invert
+    end
+    characters = prepare_message(encrypted_message)
+    decrypted = []
+    characters.each_with_index do |letter, index|
+      if (index + 1) % 4 == 1
+        decrypted << ciphers_inverse['A'][letter]
+      elsif (index + 1) % 4 == 2
+        decrypted << ciphers_inverse['B'][letter]
+      elsif (index + 1) % 4 == 3
+        decrypted << ciphers_inverse['C'][letter]
+      else (index + 1) % 4 == 4
+        decrypted << ciphers_inverse['D'][letter]
+      end
+    end
+    decrypted.join
   end
 
   def generate_key
@@ -39,8 +63,8 @@ class Enigma
     cipher(rotations)
   end
 
-  def prepare_message
-    text = @message
+  def prepare_message(message)
+    text = message
     text = text.chars
   end
 
@@ -54,8 +78,4 @@ class Enigma
     rotations_hash['D'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['D']))]
     rotations_hash
   end
-
 end
-
-e = Enigma.new
-p e.encrypt('helloworld')

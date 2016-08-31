@@ -1,5 +1,5 @@
-require './lib/enigma'
 require_relative 'test_helper'
+require './lib/enigma'
 
 
 
@@ -8,7 +8,6 @@ class EnigmaTest < Minitest::Test
     e = Enigma.new
     e.encrypt('hello', '12345', Date.today)
 
-    assert_equal 'hello', e.message
     assert_equal '12345', e.key
     assert_equal Date.today, e.date
   end
@@ -33,14 +32,6 @@ class EnigmaTest < Minitest::Test
     assert_equal 5, e.key.length
   end
 
-  def test_message_gets_broken_up
-    e = Enigma.new
-    e.encrypt('hello')
-
-    assert_equal Array, e.prepare_message.class
-    assert_equal ['h','e','l','l','o'], e.prepare_message
-  end
-
   def test_get_offsets_hits_cipher_and_returns_it
     e = Enigma.new
     e.encrypt('hello', '12345', '051185')
@@ -48,5 +39,20 @@ class EnigmaTest < Minitest::Test
     assert_equal Hash, e.ciphers.class
   end
 
+  def test_encrypt_works
+    e = Enigma.new
+
+    assert_equal 'xdvje', e.encrypt('hello', '12345', '051185')
+    assert_equal 'bctei' , e.encrypt('hello', '12345', '012090')
+  end
+
+  def test_encrypt_hello_decrypt_hello
+    e = Enigma.new
+    encrypted = e.encrypt('hello', '12345', '051185')
+    decrypted = e.decrypt(encrypted, '12345', '051185')
+
+    assert_equal 'hello', decrypted
+    assert_equal 'xdvje', encrypted
+  end
 
 end
