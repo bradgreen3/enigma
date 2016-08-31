@@ -42,8 +42,8 @@ class EnigmaTest < Minitest::Test
   def test_encrypt_works
     e = Enigma.new
 
-    assert_equal 'xdvje', e.encrypt('hello', '12345', '051185')
-    assert_equal 'bctei' , e.encrypt('hello', '12345', '012090')
+    assert_equal 'x~1? ', e.encrypt('hello', '12345', '051185')
+    assert_equal '|}/:$' , e.encrypt('hello', '12345', '012090')
   end
 
   def test_encrypt_hello_decrypt_hello
@@ -52,7 +52,14 @@ class EnigmaTest < Minitest::Test
     decrypted = e.decrypt(encrypted, '12345', '051185')
 
     assert_equal 'hello', decrypted
-    assert_equal 'xdvje', encrypted
+    assert_equal 'x~1? ', encrypted
   end
 
+  def test_crack_exists
+skip
+    e = Enigma.new
+    result = e.crack("-|0S-|0S-|0S-|0SCI-ByIU", Date.today)
+
+    assert_equal 'wah wah wah wah ..end..', result
+  end
 end

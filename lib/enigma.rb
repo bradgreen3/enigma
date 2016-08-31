@@ -29,6 +29,7 @@ class Enigma
     encrypted_message = input_message
     @key = input_key
     @date = input_date
+    @ciphers = get_offsets
     ciphers_inverse = Hash.new
     ciphers.each do |key, value|
       ciphers_inverse[key] = value.invert
@@ -69,7 +70,7 @@ class Enigma
   end
 
   def cipher(rotations)
-    alpha_library = ('a'..'z').to_a
+    alpha_library = (' '..'~').to_a
     rotation_keys = ['A','B','C','D']
     rotations_hash = Hash[rotation_keys.zip(rotations)]
     rotations_hash['A'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['A']))]
@@ -78,4 +79,19 @@ class Enigma
     rotations_hash['D'] = Hash[alpha_library.zip(alpha_library.rotate(rotations_hash['D']))]
     rotations_hash
   end
+
+  def crack(coded_message, date=Date.today)
+    # o = Offsets.new
+    # offset = o.offset_generator(date)
+    99999.times do |i|
+      i = i.to_s.rjust(5, '0')
+      decrypted = decrypt(coded_message, i, date)
+      if decrypted[-7..-1] == '..end..'
+        puts decrypted, i
+      end
+    end
+  end
 end
+# e = Enigma.new
+# result = e.crack("-|0S-|0S-|0S-|0SCI-ByIU", Date.today)
+# puts result
