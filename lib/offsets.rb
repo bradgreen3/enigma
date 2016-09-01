@@ -14,18 +14,18 @@ class Offsets
       @date.rotate!
       @date[0], @date[1] = @date[1], @date[0]
       @date = @date.join("")
-      @date = (@date.to_i * @date.to_i).to_s
-      @date = @date[-4..-1]
-      return @date
+      offset = (@date.to_i * @date.to_i).to_s
+      offset = offset[-4..-1]
+      return offset
     elsif date.class != String
       return "Date must be a string"
     elsif date.length != 6
       return "Date must be in MMDDYY format"
     else
-      @date = date
-      @date = (@date.to_i * @date.to_i).to_s
-      @date = @date[-4..-1]
-      return @date
+      offset = date
+      offset = (offset.to_i * offset.to_i).to_s
+      offset = offset[-4..-1]
+      return offset
     end
   end
 

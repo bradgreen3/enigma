@@ -56,10 +56,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_crack_exists
-skip
     e = Enigma.new
-    result = e.crack("-|0S-|0S-|0S-|0SCI-ByIU", Date.today)
+    result = e.crack("|in0|in0|in0|in036k~i64", Date.today)
 
-    assert_equal 'wah wah wah wah ..end..', result
+    assert_equal ['wah wah wah wah ..end..', '00010'], result
   end
 end

@@ -81,17 +81,12 @@ class Enigma
   end
 
   def crack(coded_message, date=Date.today)
-    # o = Offsets.new
-    # offset = o.offset_generator(date)
     99999.times do |i|
       i = i.to_s.rjust(5, '0')
       decrypted = decrypt(coded_message, i, date)
       if decrypted[-7..-1] == '..end..'
-        decrypted
+        return [decrypted, i]
       end
     end
   end
 end
-e = Enigma.new
-result = e.crack("-|0S-|0S-|0S-|0SCI-ByIU", Date.today)
-puts result
