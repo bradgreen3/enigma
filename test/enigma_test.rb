@@ -1,8 +1,6 @@
 require_relative 'test_helper'
 require './lib/enigma'
 
-
-
 class EnigmaTest < Minitest::Test
   def test_encrypt_with_message_input
     e = Enigma.new
@@ -57,8 +55,10 @@ class EnigmaTest < Minitest::Test
 
   def test_crack_exists
     e = Enigma.new
-    result = e.crack("|in0|in0|in0|in036k~i64", Date.today)
-
+    result = e.crack("|in0|in0|in0|in036k~i64", "310816")
     assert_equal ['wah wah wah wah ..end..', '00010'], result
+
+    result = e.crack("k}j.nvnBjvj5~x{2w4''t(!2zz'-tj(B36l1i65", '310816')
+    assert_equal ["fucking encryptor, do your job! ..end..", '00028'], result
   end
 end
